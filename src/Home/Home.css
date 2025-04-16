@@ -1,0 +1,729 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+
+.home-container {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: #141414; /* Added background color */
+  position: relative; /* Establish stacking context */
+  z-index: 1; /* Base z-index for container */
+  background-color: var(--bg);
+   transition: background-color 0.5s ease; /* smooth transition */
+}
+.home-container::-webkit-scrollbar {
+  position: absolute;
+  transition: opacity 0.3s;
+  opacity: 0; /* Initially hidden */
+  width: 10px;
+}
+.home-container:hover::-webkit-scrollbar {
+  opacity: 1; /* Show scrollbar on hover */
+  visibility: visible;
+}
+.home-container::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+  visibility: hidden;
+  opacity: 0;
+}
+.home-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #25252586, #556270);
+  border-radius: 10px;
+  visibility: hidden;
+  transition: background 0.3s;
+}
+.home-container.scrolling::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
+.home-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #ffffff, #f6ffe6d0);
+}
+
+.background-video {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.home-page {
+  scroll-snap-align: start;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  transition: transform 0.5s ease-out;
+  padding: 20px;
+}
+
+/* Video selector buttons container */
+.video-selector {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+/* Individual circular buttons */
+.video-selector-btn {
+  position: relative;
+  top: 300px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.video-selector-btn.active,
+.video-selector-btn:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+.video-thumbnail {
+  position: relative;
+  top: -150px;
+  right: 600px;
+  width: 70px;
+  height: 70px;
+  mix-blend-mode:multiply;
+  filter: brightness(1.0) ;
+}
+
+.pages-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  z-index: 2; /* Ensure content overlays the background */
+}
+
+.bb-text {
+  animation: none;
+  padding-left: 0;
+  position: relative;
+  top: 100px;
+  font-size: 2.5rem;
+  font-family: 'Chillax';
+  color: green;
+}
+.oh-text {
+  animation: none;
+  padding-left: 0;
+  position: relative;
+  top: 100px;
+  color: orangered;
+  font-size: 2.0rem;
+  font-family: 'Satoshi';
+  letter-spacing: 5px;    
+}
+.himm-text {
+  animation: none;
+  padding-left: 0;
+  position: relative;
+  top: 100px;
+  color: rgb(0, 0, 0);
+  font-size: 2.5rem;
+  font-family: 'Satoshi-Regular';
+}
+.st-text {
+  animation: none;
+  padding-left: 0;
+  font-size: 2.5rem;
+  position: relative;
+  top: 100px;
+  color: rgb(221, 0, 0);
+  font-family: 'Boska';
+}
+.aot-text {
+  animation: none;
+  padding-left: 0;
+  position: relative;
+  top: 100px;
+  background: linear-gradient(90deg, rgb(79, 77, 77), rgb(210, 22, 22));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5rem;
+  font-family: 'Gambarino';
+}
+.yn-text {
+  animation: none;
+  padding-left: 0;
+  position: relative;
+  top: 100px;
+  background: linear-gradient(90deg, rgb(255, 255, 255), rgb(1, 45, 94));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5rem;
+  font-family: 'Boska-regular';
+}
+
+/* Music Toggle Button */
+.toggle-mute-btn {
+  position: relative;
+  top: 120px;
+  right: 580px;
+  margin: 10px;
+  padding: 10px 16px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: 1px solid #ffffff9f;
+  border-radius: 30%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3; /* Ensure this stays on top */
+  transition: background-color 0.3s;
+}
+.toggle-mute-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Watch Button Container and Button */
+.watch-button-container {
+  position: relative;
+  top: 120px;
+  display: flex;
+  justify-content: center;
+  border-radius: 15px;
+  background: white; /* Ensure it's visible if background is transparent */
+  z-index: 3; /* Ensure it appears above other content */
+  box-shadow: 
+    5px 3px 15px rgba(255, 105, 180, 0.5), 
+    0px 3px 20px rgba(255, 105, 180, 0.4), 
+    0px 3px 25px rgba(65, 105, 225, 0.4),  
+    5px 10px 30px rgba(65, 105, 225, 0.5);
+}
+
+.watch-button {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding: 10px 20px;
+  background-color: #dce9dd; /* Change to your desired color */
+  color: #272727;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: 'Satoshi';
+  font-weight: 700;
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.watch-button .default-text,
+.watch-button .hover-text {
+  animation: none;
+  padding-left: 0;
+  display: block;
+  transition: transform 0.6s ease, opacity 0.5s ease;
+}
+
+.watch-button .default-text {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.watch-button .hover-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.watch-button:hover .default-text {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.watch-button:hover .hover-text {
+  transform: translateY(20%);
+  opacity: 1;
+}
+
+/* Transition for Video Elements */
+.background-video,
+.video-selector-btn,
+.video-thumbnail-container,
+.video-text-container,
+.watch-button-container,
+.toggle-mute-btn {
+  transition: transform 0.7s ease, opacity 0.7s ease;
+}
+
+.fade-out {
+  animation: wrapUp 0.7s forwards;
+}
+
+@keyframes wrapUp {
+  0% {
+      opacity: 1;
+      transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  20% {
+      opacity: 0.9;
+      transform: translate(-10px, -20px) scale(0.85) rotate(72deg);
+  }
+  40% {
+      opacity: 0.7;
+      transform: translate(-20px, -40px) scale(0.6) rotate(144deg);
+  }
+  60% {
+      opacity: 0.5;
+      transform: translate(-30px, -60px) scale(0.45) rotate(216deg);
+  }
+  80% {
+      opacity: 0.3;
+      transform: translate(-40px, -80px) scale(0.25) rotate(288deg);
+  }
+  100% {
+      opacity: 0;
+      transform: translate(-50px, -100px) scale(0.15) rotate(360deg);
+  }
+}
+
+/* Sidebar */
+/* .sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 100vh;
+  background-color: #1e1e1e;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+.sidebar.visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1.7s ease, visibility 1.7s ease;
+}
+.logo-container {
+  position: relative;
+  right: 10px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.logo-container img {
+  width: 35px;
+  height: auto;
+}
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  flex-grow: 1;
+}
+.sidebar-item {
+  margin-bottom: 50px;
+}
+.sidebar-item a {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+.sidebar-item a:hover {
+  color: #ff4500;
+}
+.icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+.sidebar-profile {
+  text-align: center;
+}
+.sidebar-profile a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+.profile-icon {
+  font-size: 24px;
+  margin-right: 10px;
+} */
+
+.logo-home {
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--col3);
+  position: relative;
+  top: 100px;
+  /* right: 600px; */
+  left: 41.5%;
+  font-family: 'Chillax-medium',sans-serif;
+  z-index: 2;
+  font-size: 2rem;
+  filter: brightness(80%);
+}
+/* Home Page Container */
+.home-page-container {
+  width: 100vw;
+  padding: 20px;
+}
+
+/* Sections Container */
+.sections {
+  position: relative;
+  top: -1250px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+  background-color: #1e1e1e;
+}
+.sections.sec-visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1.7s ease, visibility 1.7s ease;
+}
+
+/* Section styling */
+.section {
+  position: relative;
+  padding-left: 50px;
+}
+.section h2 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #333;
+  text-align: left;
+}
+.image-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+.image-row img {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Content Section */
+.content-section {
+  color: #dce9dd;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+/* Position the genre select box on the left side */
+.genre-select-box {
+  position: relative;
+  width: 20vw;      
+  left: 20px;          
+  
+  padding: 10px;
+  border-radius: 4px;
+  z-index: 5;         
+  color: #fff;
+}
+.genre-select-box label {
+  font-family: 'Gambarino';
+  font-size: 1.2rem;
+  color: wheat;
+  color: var(--col);
+}
+
+/* Optional: Style the select element */
+.genre-select-box select {
+  padding: 5px;
+  border-radius: 12px;
+  border: 1px solid #444;
+  background-color: #222;
+  color: ivory;
+  font-family: 'Satoshi';
+  font-size: 0.9rem;
+  
+}
+.search-results-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+}
+.search-output h2 span {
+  display: inline;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+}
+
+.search-output span {
+  padding-left: 0;
+  animation: blink 0.5s linear infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.search-results-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+
+/* Each individual poster */
+.movie {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.movie-poster {
+  width: 100%;
+  height: 300px; /* Set a fixed height so they are uniform */
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.movie-poster img:hover {
+  transform: scale(1.05);
+}
+
+.movie-card span {
+  animation: none;
+  padding-left: 0;
+  font-size: 1.1rem;
+  font-family: 'Boska-Regular';
+  color: ivory;
+}
+.movie-card h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: normal;
+  overflow-wrap: break-word;
+  color: wheat;
+  font-family: 'Chillax-medium';
+}
+.movie-card span,
+.movie-card h3 {
+  
+  line-height: 1;
+}
+
+
+/* Slide-in animation keyframes */
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+.back-home {
+  position: absolute;
+  top: 850px;   /* Reduced offset from the top */
+  left: 330px; /* Adjust as needed */
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.back-home img {
+  width: 50px;
+  height: 50px;
+  background-size: 45px;
+  filter: invert(1) brightness(1.0);
+  cursor: pointer;
+}
+
+.clear-chat-button {
+  background: transparent;
+  position: absolute;
+  top: 770px;   /* Reduced offset from the top */
+  left: 330px; /* Adjust as needed */
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  filter: invert(1) brightness(1.0);
+  padding: 5px;
+  transition: transform 0.3s;
+}
+
+.clear-chat-button img {
+  width: 50px;
+  height: 50px;
+}
+
+.clear-chat-button:hover {
+  transform: scale(1.1);
+}
+
+
+/* Container that holds the entire chatbot section */
+.reccome-chat-container {
+  max-width: 80vw;
+  margin: 1rem auto; /* Centers the container horizontally */
+  padding: 1rem;
+  border-radius: 14px;
+  max-height: 300px; /* Adjust as needed */
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: none; 
+  -ms-overflow-style: none; /* for Internet Explorer and Edge */
+}
+
+/* Container for the conversation messages */
+.reccome-chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Group each conversation pair (user message followed by bot reply) */
+.chat-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Common styles for each message block */
+.message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Styles for bot messages */
+.bot-message {
+  align-self: flex-start;
+}
+
+.bot-message .message-content {
+  /* background-color: #3a3a3a; */
+  color: wheat;
+  color: var(--col3);
+  padding: 10px 15px;
+  border-radius: 8px;
+  max-width: 70%;
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+/* Styles for user messages */
+.user-message {
+  align-self: flex-end;
+}
+
+.user-message .message-content {
+  background-color: #535353;
+  color: wheat;
+  padding: 10px 15px;
+  font-size: 1.1rem;
+  border-radius: 17px;
+  max-width: 70%;
+  text-align: center;
+}
+
+/* Bot avatar, only shown for bot messages */
+.Bot-indicator {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: invert(1);
+}
+.Bot-indicator-message {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: invert(1);
+  align-self: flex-start; /* Align this item to the top in its flex container */
+  
+}
+
+
+/* Typing indicator styles */
+/* .typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 15px;
+} */
+/* Typing indicator styles: display inline so it sits besides the bot image */
+.typing-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+}
+
+.typing-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: blink 1s infinite ease-in-out;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+

@@ -1,0 +1,43 @@
+.video-bg {
+    position: fixed;
+    top: 1px;
+    left: 8px;
+    width: 30%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    filter: contrast(100%) brightness(200%);
+  }
+  /* Grain Effect */
+.grain-effect::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400vw;
+  height: 400vh;
+  background-image: url('/public/backgrounds/noise.webp'); /* Ensure correct path */
+  top: calc(50% - 400vh / 2);
+  left: calc(50% - 400vw / 2);
+  opacity: 0.7; /* Adjust for subtle effect */
+  pointer-events: none;
+  animation: grain 8s steps(10) infinite;
+  z-index: 2;
+}
+
+/* Noise Animation */
+@keyframes grain {
+  0%, 100% { transform: translate(0px, 0px); }
+  10% { transform: translate(-5%, -10%); }
+  20% { transform: translate(-15%, 5%); }
+  30% { transform: translate(7%, -25%); }
+  40% { transform: translate(-5%, 25%); }
+  50% { transform: translate(-15%, 10%); }
+  60% { transform: translate(15%, 0%); }
+  70% { transform: translate(0%, 15%); }
+  80% { transform: translate(-5%, -25%); }
+  90% { transform: translate(-10%, 10%); }
+}
+
+
+  

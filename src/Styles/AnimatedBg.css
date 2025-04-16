@@ -1,0 +1,25 @@
+/* .Animation-body {
+    margin: 0;
+    background-color: #111;
+    height: 400vh; 
+    overflow-x: hidden;
+  }
+  
+.animated-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+  } */
+  .animated-background {
+    position: fixed;  /* Stays fixed in the background */
+    top: 0;
+    left: 0;
+    z-index: -1;      /* Places the canvas behind other page content */
+    width: 100vw;     /* Full viewport width */
+    /* Height is set by JavaScript to 400vh, so no need to specify here */
+  }
+  

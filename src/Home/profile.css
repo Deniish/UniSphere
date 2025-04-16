@@ -1,0 +1,264 @@
+/* Global Variables */
+:root {
+  --primary-bg: #242526;
+  --secondary-bg: #fff;
+  --primary-text-color: #555;
+  --secondary-text-color: #cecece;
+  --border-radius: 8px;
+  --transition-speed: 500ms;
+}
+
+/* General Resets */
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: var(--secondary-bg);
+}
+
+/* Dropdown Container & Trigger */
+.menu-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Menu Trigger Image - positions unchanged */
+.menu-trigger img {
+  position: relative;
+  top: 170px;
+  right: -380px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #ffffffdb;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+.menu-trigger img:hover {
+  transform: scale(0.95);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.33), 0 0 30px rgba(143, 143, 143, 0.15);
+}
+
+/* Dropdown Menu positioned below the trigger (positions kept the same) */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 180px);
+  right: 85px;
+  z-index: 1000;
+  background-color: rgba(28, 28, 28, 0.369);
+  border: 1px solid rgba(178, 178, 178, 0.17);
+  border-radius: var(--border-radius);
+  padding: 10px 20px;
+  width: 200px;
+  color: var(--secondary-bg);
+  transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+}
+
+.dropdown-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid var(--secondary-bg);
+}
+
+/* Dropdown Menu Items */
+.dropdown-menu span {
+  padding-left: 0;
+  animation: none;
+}
+
+h3 {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--col3);
+  line-height: 1.2rem;
+}
+
+h3 span {
+  font-size: 14px;
+  color: var(--secondary-text-color);
+  font-weight: 400;
+}
+
+/* Dropdown menu list items styling */
+.dropdown-menu ul li {
+  padding: 10px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.661);
+  border-top: 1px solid var(--primary-text-color);
+  transition: background-color 0.3s ease, border-radius 0.3s ease;
+}
+
+.dropdown-menu ul li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.dropdown-menu ul li a {
+  transition: color 0.3s ease;
+  color: var(--col3);
+}
+
+.dropdown-menu ul li img {
+  filter: invert(2);
+  max-width: 20px;
+  margin-right: 10px;
+  transition: var(--transition-speed);
+}
+
+.dropdown-menu ul li:hover img {
+  opacity: 1;
+  cursor: pointer;
+  filter: invert(1);
+}
+
+.dropdown-menu ul li:last-child:hover a {
+  color: rgb(212, 33, 9);
+}
+
+.dropdown-menu ul li:hover:last-child {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+}
+
+/* Dropdown Item Layout */
+.dropdownItem {
+  display: flex;
+  margin: 10px auto;
+}
+
+/* Toast container override remains unchanged */
+.custom-toast-container-2 {
+  top: 10% !important;
+  left: 25% !important;
+  transform: translate(-50%, -50%) !important;
+  width: auto !important;
+}
+/* Common container to hold the trigger and dropdown */
+.menu-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Menu trigger styling */
+.menu-trigger {
+  position: absolute;
+  right: 270px;
+  top: 95px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #f9f9f9b2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+/* User placeholder for profile */
+.profile-placeholder {
+  width: 60%;
+  height: 60%;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  color: #ffecec;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 50%;
+  font-family: 'Satoshi';
+  transition: transform 0.6s ease, box-shadow 0.3s ease;
+}
+/* Effect when the dropdown is open */
+.profile-placeholder.active {
+  cursor: pointer;
+  transform: scale(1.7);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.settings-popup:hover{
+  color: rgb(212, 33, 9);
+  cursor: pointer;
+}
+.popup-delete-icon{
+  position: relative;
+  top: 5px;
+}
+.password-section{
+  font-size: 0.8rem;
+  color: rgb(212, 33, 9);
+}
+.password-section input{
+  width: 100%;
+  padding: 7px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid rgb(212, 33, 9);
+}
+.password-section button {
+  width: 40%;
+  padding: 5px;
+  margin: 5px; /* Adds space around each button */
+  border-radius: 5px;
+  border: 1px solid rgb(246, 118, 101);
+  background-color: rgb(243, 128, 113);
+  color: white;
+  font-weight: bold;
+}
+.password-section button:hover {
+  background-color: rgb(99, 12, 0);
+}
+.dropdown-logout{
+  color: rgb(212, 33, 9);
+}
+/* Base style for dropdown-link */
+.dropdown-link {
+  display: block;             /* Makes the button a block element */
+  width: 100%;                /* Adjust width as needed */
+  text-align: justify;        /* Justify the text */
+  background: none;
+  border: none;
+  color: var(--col3);
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  font-family: 'Satoshi-Regular';
+  font-family: '';
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+
+/* Hover style only for logout dropdown item */
+.logout-dropdown-item .dropdown-link:hover {
+  color: red; /* Replace with your desired hover color */
+}

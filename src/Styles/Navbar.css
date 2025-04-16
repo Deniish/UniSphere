@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+.navbar {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: auto;
+    width: auto; /* Keeps dynamic width */
+    max-width: 80%; /* Optional: Limit maximum width */
+    padding: 0.5rem 5rem 0.5rem 1rem; /* Add more space on the right side */
+    background-color: #1c1c1c;
+    color: white;
+    text-align: center;
+    border-radius: 1.375rem;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Aligns logo and links */
+    box-shadow: 
+    -2px -4px 6px rgba(0, 0, 0, 0.697), /* Above shadow */
+    30px 15px 80px rgba(0, 0, 0, 0.5); /* Further stretched shadow to the right */ 
+}
+
+/* Ensure logo and links remain spaced */
+.navbar-logo {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: 2rem;
+    color: white;
+}
+
+.navbar-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+
+.navbar-links li {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.navbar-links li a {
+    display: inline-block;
+    color: #9c9c9c; /* Dark color before hover */
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 4px; 
+    position: relative;
+    z-index: 10; /* Keeps the text on top */
+    opacity: 1; /* Visible initially */
+    transform: translateY(0); /* Starts in normal position */
+    
+}
+
+
+
+
+
+/*-------------------Effect--------------*/
+
+.navbar-links li a .default-text,
+.navbar-links li a .hover-text {
+  animation: none;
+  padding-left: 0;
+
+  display: block;
+  transition: transform 0.5s ease, opacity 0.6s ease;
+}
+
+/* Default text is visible and in place */
+.navbar-links li a .default-text {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+
+.navbar-links li a .hover-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  transform: translateY(100%);
+  opacity: 0;
+}
+.navbar-links li a:hover .hover-text {
+    transform: translateY(10%);
+    opacity: 1;
+    color: wheat;
+  }
+
+.navbar-links li a:hover .default-text {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+
+/*---------------------signup------------------------------*/
+
+.navbar-links li a[href="/signup"] {
+    border-radius: 15px; 
+    position: fixed;
+    height: 20px; 
+    width: 60px;
+    top: 8px; 
+    right: 8px;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; 
+    background: #dce9dd;
+    border: 5px solid linear-gradient(360deg, #ff69b4, #4169e1); 
+    color: #272727; 
+    overflow: hidden;
+    font-family: "Satoshi";
+    white-space: nowrap;
+    line-height: 20px;
+    box-shadow:  
+        0 0 20px 2px rgba(255, 105, 180, 0.6),
+        0 0 25px 4px rgba(255, 105, 180, 0.5),
+        0 0 35px 6px rgba(65, 105, 225, 0.5),
+        0 0 25px 8px rgba(65, 105, 225, 0.6);
+
+}
+.navbar-links li a[href="/signup"]:hover .hover-text {
+    transform: translateY(25%);
+    color: #0d0d0d;
+    opacity: 1;
+  }
+
+/*----------------------login------------------------*/
+
+.navbar-links li a[href="/login"] {
+    border: 2px solid #ffffff3e;
+    border-radius: 13px;
+    width: 60px;
+    font-size: 15px;
+}
+.navbar-links li a[href="/login"]:hover {
+    border: 2px solid #ffffff75;
+}
+.navbar-links li a[href="/login"]:hover .hover-text {
+    transform: translateY(5%);
+    opacity: 1;
+    color: antiquewhite;
+    color: wheat;
+  }
+
+.unisphere-logo-navbar {
+    transition: filter 1.3s ease-in;
+    width: 35px;  
+    filter: brightness(1.8) contrast(1) saturate(0%) invert(1);
+    cursor: pointer;
+    transition: transform 1.3s ease;
+  }
+  /* .unisphere-logo-navbar.clickActive {  
+    transform: translateX(200px) scale(5.5);
+    filter: none;
+  } */
+  .unisphere-logo-navbar:hover {
+    transition: filter 0.3s ease-in;
+    filter: none;
+  }
+  @keyframes clickAnimation {
+    0% {
+      transform: translateX(0) translateY(0) scale(1);
+      filter: brightness(1.8) contrast(1) saturate(0%) invert(1);
+    }
+    50% {
+      transform: translateX(600px) translateY(0) scale(5.5);
+      filter: none;
+    }
+    75% {
+      transform: translateX(600px) translateY(205px) scale(5.5);
+      filter: none;
+    }
+    100% {
+      transform: translateX(0) translateY(0) scale(1);
+      filter: brightness(1.8) contrast(1) saturate(0%) invert(1);
+    }
+  }
+  
+  
+  
+  
+  .unisphere-logo-navbar.clickActive {
+    animation: clickAnimation 2.5s ease-in-out forwards;
+    filter: none;
+    transition: filter 0.3s ease-in;
+  }
+  

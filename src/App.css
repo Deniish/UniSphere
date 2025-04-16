@@ -1,0 +1,106 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*----------------Chillax-----------------*/
+
+@font-face {
+  font-family: 'Chillax'; /* Give your font a name */
+  src: url('/public/Fonts/Chillax/Fonts/OTF/Chillax-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Chillax-light'; /* Give your font a name */
+  src: url('/public/Fonts/Chillax/Fonts/OTF/Chillax-Extralight.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Chillax-regular'; /* Give your font a name */
+  src: url('/public/Fonts/Chillax/Fonts/OTF/Chillax-Regular.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Chillax-medium'; /* Give your font a name */
+  src: url('/public/Fonts/Chillax/Fonts/OTF/Chillax-Medium.otf') format('opentype');
+}
+
+/*----------------Boska-----------------*/
+
+@font-face {
+  font-family: 'Boska'; /* Give your font a name */
+  src: url('/public/Fonts/Boska/Boska-Black.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Boska-light'; /* Give your font a name */
+  src: url('/public/Fonts/Boska/Boska-Extralight.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Boska-regular'; /* Give your font a name */
+  src: url('/public/Fonts/Boska/Boska-Regular.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Boska-medium'; /* Give your font a name */
+  src: url('/public/Fonts/Boska/Boska-Medium.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Boska-bold'; /* Give your font a name */
+  src: url('/public/Fonts/Boska/Boska-Bold.otf') format('opentype');
+}
+
+/*----------------Gambarino-----------------*/
+
+@font-face {
+  font-family: 'Gambarino'; /* Give your font a name */
+  src: url('/public/Fonts/Gambarino/Fonts/OTF/Gambarino-Regular.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/*----------------Satoshi-----------------*/
+
+@font-face {
+  font-family: 'Satoshi'; /* Give your font a name */
+  src: url('/public/Fonts/Satoshi/Fonts/OTF/Satoshi-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi-Regular'; /* Give your font a name */
+  src: url('/public/Fonts/Satoshi/Fonts/OTF/Satoshi-Regular.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}

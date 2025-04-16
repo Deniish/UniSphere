@@ -1,0 +1,473 @@
+/* Manifesto.css */
+.manifesto-container {
+    height: 100vh;
+    /* overflow: auto; */
+    overflow-y: auto;
+    width: 100vw;
+    scroll-behavior: smooth;
+    background-color: #636363;
+}
+
+/* Custom scrollbar for .manifesto-container in WebKit browsers */
+.manifesto-container::-webkit-scrollbar {
+    position: absolute;
+    transition: opacity 0.3s;
+    opacity: 0; /* Initially hidden */
+    width: 14px;
+}
+
+.manifesto-container:hover::-webkit-scrollbar {
+    opacity: 1; /* Show scrollbar on hover */
+    visibility: visible;
+}
+
+.manifesto-container::-webkit-scrollbar-track {
+    background: none;
+    border-radius: 10px;
+    visibility: visible;
+}
+
+.manifesto-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #25252586, #556270);
+    border-radius: 10px;
+    visibility: hidden;
+    transition: background 0.3s;
+   
+}
+.manifesto-container.scrolling::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+/* .manifesto-container:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+} */
+.manifesto-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #ffffff, #f6ffe6d0);
+    
+}
+
+.manifesto-section {
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 100px;
+    padding-top: 50px;
+    /* animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%; */
+}
+@keyframes appear {
+  from {
+    opacity: 0.5;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+/* Container for the scroll indicator */
+.scroll-indicator {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center;
+  position: relative;
+  top: 150px;
+  cursor: pointer;
+}
+
+/* Remove absolute positioning from the breathing box so it follows the container flow */
+.breathing-box {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(253, 251, 208, 0.729);
+  border-radius: 14px;
+  animation: breathe 1.7s ease-in-out infinite;
+  margin-bottom: 5px; /* Space between box and arrow */
+}
+
+/* Breathing animation for the box */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Down arrow icon with a slide-down effect */
+.down-arrow-icon {
+  width: 24px;
+  height: 24px;
+  color: black;
+  animation: slideDown 1.7s linear infinite;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-10px); /* Starts above */
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  
+  70% {
+    opacity: 1;
+  }
+  90% {
+    transform: translateY(32px);  /* Fully down position */
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-20px); /* Jumps back above */
+    opacity: 0;
+  }
+}
+
+.scroll-indicator-up {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center;
+  position: relative;
+  top: 10px;
+  cursor: pointer;
+}
+
+.up-arrow-icon {
+  width: 20px;
+  height: 20px;
+  color: black;
+  animation: slideUp 1.5s linear infinite;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(15px); /* starts below */
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  90% {
+    transform: translateY(-10px);  /* slides fully up */
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(20px); /* jumps back below */
+    opacity: 0;
+  }
+}
+
+
+.manifesto-heading {
+    margin-bottom: 40px;
+    font-size: 4rem;
+    font-weight: 500;
+    font-family: 'Chillax-regular';
+}
+.man-txt {
+    animation: none;
+    line-break: none;
+    font-family: 'Chillax';
+    display: inline;
+}
+.manifesto-text {
+    max-width: 600px;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-family: 'Gambarino';
+}
+
+.manifesto-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 15px auto;
+    text-align: left;
+    max-width: 600px;
+}
+
+.manifesto-list li {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-family: 'Boska-regular';
+}
+.manifesto-list li strong {
+    font-weight: 900;  
+}
+
+
+
+.manifesto-container.dark-mode {
+    transition: 0.3s ease-in-out;
+    background-color: #121212;
+    color: #bcbcbc;
+    color: wheat;
+  }
+  
+  .manifesto-container.light-mode {
+    transition: 0.3s ease-in-out;
+    background-color: rgba(243, 206, 137, 0.842);
+    color: #431b1b;
+  }
+  
+  .toggle-container {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+  }
+  
+  .toggle-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  /* Toggle container positioned at top center */
+.toggle-container {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    transition: opacity 0.5s, visibility 0.9s ease-in-out;
+  }
+  .toggle-container.hide-toggle {
+    opacity: 0;
+    visibility: hidden;
+  }
+  /* Hide the default checkbox */
+  .toggle-input {
+    display: none;
+  }
+  
+  /* Toggle switch styling */
+  .toggle-switch {
+    width: 85px;
+    height: 45px;
+    background-color: #ccc;
+    border: 2px solid #888; /* Border within the toggle */
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    box-sizing: border-box;
+  }
+  
+  /* Icon styling */
+  .toggle-icon {
+    font-size: 18px;
+    z-index: 2;
+    animation: none;
+    padding-left: 2px;
+    padding-top: 0px;
+    display: inline-block;
+    width: 25px; /* Adjust width as needed */
+    height: 25px; /* Adjust height as needed */
+  }
+  .toggle-icon img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    color: #ffffff;
+  }
+  .toggle-icon:hover {
+    color: #f6ffe6d0;
+    transform: scale(0.85);
+    transition: color 0.3s, transform 0.3s ease;
+  }
+  /* The slider (the moving knob) */
+  .toggle-slider {
+    position: absolute;
+    width: 10px;            
+    height: 1px;            
+    bottom: -1px;             
+    left: 11px;               
+    background: #8888885d; 
+    box-shadow: 1px 0px 20px 10px rgb(178, 90, 90);
+
+    border-radius: 5px;     
+    transition: left 0.3s;   
+    animation: none;
+  }
+  
+  /* When dark mode is active (checkbox is checked), move the slider */
+  .toggle-input:checked + .toggle-switch .toggle-slider {
+    left: calc(100% - 32px); /* Adjust position to the right */
+    box-shadow: 1px 0px 20px 6px rgb(255, 255, 255); 
+    background: linear-gradient(90deg, #fff2f278, #ffffffbd);
+  }
+  
+  /* Optional: adjust colors based on theme */
+  .manifesto-container.dark-mode .toggle-switch {
+    background-color: transparent;
+    border-color: #666;
+  }
+  
+  .manifesto-container.light-mode .toggle-switch {
+    background-color: transparent;
+    border-color: #888;
+  }
+  /* Voice button styling */
+/* Voice Button Container positioned at the bottom right */
+.voice-button-container {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1000;
+  }
+  
+  /* Voice Button styling */
+  .voice-button {
+    padding: 10px;
+    background-color: #ffffff34;
+    border: 3px solid #888;
+    box-shadow: 0 0 10px 0 #ffffff;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s ease-in-out;
+  }
+  
+  .voice-button:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-3px);
+  }
+  .voice-button img {
+    width: 40px; 
+    height: 40px;
+    object-fit: contain;
+    transform: scale(1.5);
+  }
+ 
+  .my-element {
+    position: relative; /* Required for absolute positioning of the pseudo-element */
+    z-index: 1;
+  }
+  
+  .my-element::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background: linear-gradient(90deg, #d40066, #00b2b9, #c16100); */
+    border: 10px solid; /* Set a border width */
+    border-radius: 30px;
+    border-image: linear-gradient(180deg, #390083, #00b2b9) 1;
+        /* Other styling, e.g.: */
+    padding: 20px;
+    /* background: white;  */
+      
+    filter: blur(10px) brightness(0.8);
+    z-index: -1;
+    transform: scale(1.1);
+  }
+
+/* Container setup for scroll snapping */
+.manifesto-container {
+  height: 100vh;              /* Full viewport height */
+  overflow-y: scroll;
+  
+}
+
+/* Each section will snap into place and fade in/out based on visibility */
+.manifesto-section {
+  scroll-snap-align: start;
+  min-height: 100vh;          /* Each section fills the viewport */
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  padding: 1px;              /* Adjust spacing as needed */
+}
+
+/* When a section is visible, it becomes fully opaque and moves to its final position */
+.manifesto-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.signup-container-2 {
+  display: flex;
+  justify-content: center;
+  border-radius: 15px;
+  margin-top: 20px; /* Adjust vertical spacing as needed */
+  box-shadow: 
+    5px 3px 15px rgba(255, 105, 180, 0.5), 
+    0px 3px 20px rgba(255, 105, 180, 0.4), 
+    0px 3px 25px rgba(65, 105, 225, 0.4),  
+    5px 10px 30px rgba(65, 105, 225, 0.5);  
+}
+
+.signup-button {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding: 10px 20px;
+  background-color: #dce9dd; /* Change to your desired color */
+  color: #272727;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: 'Satoshi';
+  font-weight: 700;
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
+}
+
+
+
+/* Both text spans use the same transition */
+.signup-button .default-text,
+.signup-button .hover-text {
+  animation: none;
+  padding-left: 0;
+  display: block;
+  transition: transform 0.6s ease, opacity 0.5s ease;
+}
+
+/* Default state: "Sign Up" is visible */
+.signup-button .default-text {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* "Join Now" is hidden initially and placed absolutely */
+.signup-button .hover-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+/* On hover, slide up "Sign Up" and slide in "Join Now" */
+.signup-button:hover .default-text {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.signup-button:hover .hover-text {
+  transform: translateY(20%);
+  opacity: 1;
+}
+

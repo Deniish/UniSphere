@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+.home-navbar {
+    position: relative;
+    top: -55px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: auto;
+    width: auto; /* Keeps dynamic width */
+    max-width: 35%; /* Optional: Limit maximum width */
+    padding: 0.5rem 5rem 0.5rem 1rem; /* Add more space on the right side */
+    background-color: var(--cord);
+    color: white;
+    text-align: center;
+    border-radius: 30px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Aligns logo and links */
+    box-shadow: 
+    -12px -16px 10px rgba(0, 0, 0, 0.8),  /* Top-left shadow */
+    -40px 60px 200px 30px rgba(0, 0, 0, 0.7);  /* Right-bottom shadow */
+
+    overflow: hidden;
+    transition: background-color 1.2s ease-in-out;
+}
+
+/* Ensure logo and links remain spaced */
+.navbar-search {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-right: 1.5rem;
+    color: white;
+    cursor: pointer;
+    transition: transform 1.5s ease;
+    z-index: 4;
+}
+
+.home-navbar-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+
+.home-navbar-links li {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.home-navbar-links li a {
+    display: inline-block;
+    color: #9c9c9c; /* Dark color before hover */
+    color: var(--col2);
+    font-size: 0.975rem;
+    font-weight: 600;
+    font-family: 'Chillax';
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 4px; 
+    position: relative;
+    z-index: 10; /* Keeps the text on top */
+    opacity: 1; /* Visible initially */
+    transform: translateY(0); /* Starts in normal position */
+    
+}
+
+
+
+
+
+/*-------------------Effect--------------*/
+
+.home-navbar-links li a .default-text,
+.home-navbar-links li a .hover-text {
+  animation: none;
+  padding-left: 0;
+
+  display: block;
+  transition: transform 0.5s ease, opacity 0.6s ease;
+}
+
+/* Default text is visible and in place */
+.home-navbar-links li a .default-text {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+
+.home-navbar-links li a .hover-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  transform: translateY(100%);
+  opacity: 0;
+}
+.home-navbar-links li a:hover .hover-text {
+    transform: translateY(25%);
+    opacity: 1;
+    color: rgb(229, 200, 145);
+  }
+
+.home-navbar-links li a:hover .default-text {
+  transform: translateY(-60%);
+  opacity: 0;
+}
+
+.navbar-icon {
+    width: 32px; /* Adjust size as needed */
+    height: auto;
+    filter: invert(1);
+    position: relative;
+    cursor: pointer;
+    top: 5px;
+    left: 5px;
+ }
+ .navbar-icon:hover {
+    transform: scale(0.9);
+ }
+ 
+
+  
+  /* Input Field Styling */
+  .navbar-searchbar input {
+   width: 38.5vw;
+   height: 6.5vh;
+   border-radius: 17px; 
+   background-color: ivory;
+   transform: translateX(-45px);
+   font-size: 1.1rem;
+   font-family: 'Satoshi';
+   color: #292929   ;
+   text-indent: 10px;
+  }
+  
+  .navbar-searchbar input::placeholder {
+    font-family: 'Chillax-medium';
+  }
+  
+
+.navbar-search.active {
+    transform: translateX(480px); /* Adjust as needed */
+    filter: invert(1);
+    z-index: 1;
+}
+
+/* New class to move the search icon to the right */
+
+
+.navbar-reccome {
+  position: fixed;
+}
+.navbar-reccome-input {
+  position: fixed;
+  left: 50px;
+  top: 5px;
+}
+
+.navbar-reccome-input input::placeholder {
+  position: relative;
+  left: 7px;
+  font-family: 'Chillax-medium';
+}
+
+
+.navbar-icon {
+  transition: transform 1.5s ease;
+}
+.navbar-icon.active-2{
+  
+  transform: translateX(-470px); /* Adjust as needed */
+  filter: invert(0);
+  z-index: 100;
+}
+.navbar-reccome-input input {
+  z-index: 10;
+  width: 39vw;
+   height: 6.5vh;
+   border-radius: 17px; 
+   background-color: ivory;
+   transform: translateX(-40px);
+   font-size: 1.1rem;
+   font-family: 'Satoshi';
+   color: #292929   ;
+   text-indent: 40px;
+}

@@ -1,0 +1,82 @@
+/* Full-screen container with a background image */
+.not-found-body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background:-webkit-radial-gradient(circle, rgba(54, 54, 54, 0.939), #171717db, #000000);
+    /* background: #171717;   */
+    overflow: hidden;
+  }
+.not-found {
+    position: relative;
+    left: 22%;
+    width: 55%;
+    height: 100vh;
+    background-image: url('https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffffd5;
+  }
+  
+  /* Dark overlay to enhance text readability */
+  .not-found::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+  }
+  
+  /* Content overlay on top of the background image */
+  .overlay {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+  }
+  
+  /* Heading style */
+  .overlay h1 {
+    font-size: 96px;
+    position: relative;
+    bottom: 190px;
+    margin-bottom: 20px;
+  }
+  
+  /* Paragraph style */
+  .overlay p {
+    font-family: 'Satoshi-Regular';
+    font-size: 24px;
+    position: relative;
+    bottom: 190px;
+    margin-bottom: 30px;
+  }
+  
+  /* Home link button style */
+  .home-link {
+    display: inline-block;
+    position: relative;
+    top: 150px;
+    padding: 12px 24px;
+    background-color: #ffffffb6;
+    color: #333;
+    font-weight: 900;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  /* Hover effect for the link */
+  .home-link:hover {
+    background-color: #ffffff;
+    transform: translateY(-3px);
+  }
+  

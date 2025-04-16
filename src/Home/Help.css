@@ -1,0 +1,196 @@
+/* Base + CSS variables */
+.help-page {
+    --bg-color: #d6d6d6;
+    --text-color: #333;
+    --section-bg: #ececec;
+    --heading-color: #1e88e5;
+    --subheading-color: #1565c0;
+    --footer-color: #555;
+    --input-bg: #f9f9f9;
+    --input-border: #bbb;
+  
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    line-height: 1.6;
+  }
+  
+  /* Dark theme overrides */
+  .help-page.dark {
+    --bg-color: #121212dd;
+    --text-color: #e0e0e0;
+    --section-bg: #1e1e1e;
+    --heading-color: #90caf9;
+    --subheading-color: #64b5f6;
+    --footer-color: #aaa;
+    --input-bg: #2c2c2c;
+    --input-border: #444;
+  }
+  
+  /* Theme toggle button */
+  .theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--text-color);
+  }
+  /* Marquee container */
+.marquee-help {
+    overflow: hidden;
+    white-space: nowrap;
+    background: var(--section-bg);
+    padding: 0.5rem 0;
+    margin: 1rem 0;
+    border: 3px solid var(--heading-color);
+  }
+  
+  /* Inner wrapper that scrolls */
+  .marquee-help__inner {
+    display: inline-flex; 
+    animation: scroll-left 12s linear infinite;
+  }
+  
+  /* Text styling */
+  .marquee-help__inner span {
+    white-space: nowrap;
+    padding-right: 2rem;  
+    font-weight: bold;
+    animation: none;
+    padding-left: 0;
+  }
+  
+  /* Keyframes for scrolling left */
+  @keyframes scroll-left {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  
+  /* Page title */
+  .help-page h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 3.1rem;
+    /* line-height: 83%; */
+    font-weight: 600;
+    font-family: Impact, sans-serif;
+    color: var(--heading-color);
+  }
+  
+  /* Section container */
+  .help-section {
+    background-color: var(--section-bg);
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    font-family: 'Gambarino';
+  }
+  
+  /* Section headings */
+  .help-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--subheading-color);
+    display: flex;
+    align-items: center;
+    font-family: 'Chillax';
+  }
+  
+  /* Paragraphs */
+  .help-section p {
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Lists */
+  .help-section ul {
+    margin-left: 1.25rem;
+    list-style: disc;
+  }
+  
+  .help-section ul li {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Search demo styling */
+  .search-demo {
+    margin: 1rem 0;
+  }
+  
+  .search-demo input {
+    width: 90%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+  }
+  
+  .search-demo input::placeholder {
+    color: #aaa;
+  }
+  
+  /* Icon images */
+  .icon-img {
+    width: 20px;
+    vertical-align: middle;
+    margin: 0 0.3rem;
+  }
+  
+  /* Footer */
+  .help-footer {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: var(--footer-color);
+  }
+  
+  .help-footer a {
+    color: var(--heading-color);
+    text-decoration: none;
+  }
+  
+  .help-footer a:hover {
+    text-decoration: underline;
+  }
+  .footer-nav-buttons {
+    display: flex;
+    justify-content: center;   /* centers the buttons */
+    gap: 1.5rem;               /* a bit more space between them */
+    margin: 2rem 0 1rem;
+  }
+  
+  .footer-nav-buttons button {
+    padding: 0.75rem 1.4rem;   /* larger clickable area */
+    font-size: 0.8rem;       /* slightly bigger text */
+    min-width: 100px;          /* ensure consistent width */
+    border: none;
+    border-radius: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: #eee;
+    transition: background-color 0.2s;
+  }
+  
+  .footer-nav-buttons button:hover {
+    background-color: #ffffff;
+  }
+  
+  .help-page.dark .footer-nav-buttons button {
+    background-color: #444;
+    color: #fff;
+  }
+  
+  .help-page.dark .footer-nav-buttons button:hover {
+    background-color: #555;
+  }
+  
+  

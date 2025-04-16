@@ -1,0 +1,265 @@
+/* HomePage.css */
+
+/* Global HomePage container */
+.HomePage {
+  background-color: #141414;
+  color: #fff;
+  min-height: 100vh;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Custom Scrollbar for HomePage */
+.HomePage::-webkit-scrollbar {
+  width: 15px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  position: absolute;
+}
+.HomePage:hover::-webkit-scrollbar {
+  opacity: 1;
+  visibility: visible;
+}
+.HomePage::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+  visibility: hidden;
+}
+.HomePage::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #25252586, #556270);
+  border-radius: 10px;
+  visibility: hidden;
+  transition: background 0.3s;
+}
+.HomePage.scrolling::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
+.HomePage::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #ffffff, #f6ffe6d0);
+}
+
+/* Header Styles */
+.app-header {
+  padding: 20px;
+  background-color: #000;
+  text-align: center;
+}
+
+/* Category Section Styles */
+.category-section {
+  margin: 20px 0;
+  padding: 0 20px;
+}
+.category-title {
+  margin: 10px 0;
+  font-size: 1.7em;
+}
+.category-title {
+  text-align: left;
+  margin-left: 20px; 
+  font-family: 'Chillax-regular';
+  color: wheat;
+  color: var(--col);
+}
+
+/* Genre Select Box */
+
+#genre-select {
+  padding: 5px;
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+/* ContentRow Styles */
+.content-row {
+  margin: 20px 0;
+  color: #ffffff;
+  color: var(--col3);
+}
+.content-row h3 {
+  margin: 0 0 10px 20px; /* top:0, right:0, bottom:10px, left:20px */
+}
+
+/* Container for ContentRow with arrow buttons */
+.content-row__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Items container - horizontal scrolling controlled by arrow buttons */
+.content-row__items {
+  display: flex;
+  overflow-x: hidden; /* hide default scrollbar */
+  scroll-behavior: smooth;
+  padding: 10px 0;
+  width: 100%;
+}
+.content-row__item {
+  flex: 0 0 auto;
+  width: 150px;
+  margin: 0 10px;
+}
+.content-row__image {
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.content-row__image:hover {
+  transform: scale(1.05);
+}
+.content-row__title {
+  margin-top: 5px;
+  font-size: 1.0rem;
+  text-align: center;
+  font-family: 'Boska-medium';
+}
+
+/* Scroll Arrow Buttons */
+.scroll-button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1;
+  filter: contrast(2.0);
+}
+.scroll-button.left {
+  margin-right: 10px;
+}
+.scroll-button.right {
+  margin-left: 10px;
+}
+.scroll-button img {
+  width: 50px;  /* Adjust width as needed */
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Center the image within the button */
+  filter: invert(1) brightness(0.7);
+}
+
+@media (max-width: 768px) {
+  .scroll-button {
+    display: none;
+  }
+}
+
+/* Optional: Genre List (if used elsewhere) */
+/* .genre-list-box {
+  padding: 10px;
+  background-color: #111;
+  border-bottom: 1px solid #333;
+}
+.genre-list {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+.genre-list-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #ccc;
+  transition: background-color 0.3s, color 0.3s;
+  font-family: 'Gambarino';
+}
+.genre-list-item:hover,
+.genre-list-item.active {
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+} */
+.image-container-continue {
+  position: relative;
+}
+
+.continue-icon {
+  position: absolute;
+  top: 5px;   /* Adjust as needed */
+  right: -3px; /* Adjust as needed */
+  width: 45px;  /* Increased from 35px */
+  height: 40px; /* Increased from 30px */
+  z-index: 2;
+  opacity: 0;               /* Hide by default */
+  transition: opacity 0.3s; /* Smooth transition */
+  filter: invert(1);        /* Invert color */
+}
+
+
+.image-container-continue:hover .continue-icon {
+  opacity: 1;  /* Show icon when hovering over the container */
+}
+.image-container {
+  position: relative;
+}
+
+.continue-icon {
+  position: absolute;
+  top: 5px;
+  right: -3px;
+  width: 45px; /* Adjust size as needed */
+  height: 40px;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s;
+  transition: transform 0.3s ease;
+}
+.continue-icon:hover {
+ transform: scale(1.2);
+}
+/* Show the icon when hovering over the image container */
+.image-container:hover .continue-icon {
+  opacity: 1;
+}
+
+/* Popup bar styling */
+.popup-bar {
+  position: absolute;
+  top: 0;
+  left: 100%;  /* Positions the popup directly to the right side of the image container */
+  margin-left: 10px;  /* Gap between the image and the popup */
+  background: rgba(26, 26, 26, 0.9);
+  padding: 20px;  /* Increased padding for a larger background */
+  border-radius: 8px;
+  z-index: 3;
+  min-width: 200px;  /* Increased min-width */
+}
+
+
+.popup-bar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;  /* Prevents text wrapping */
+}
+
+.popup-bar li {
+  display: flex;
+  align-items: center;
+  color: #c5c5c5;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  white-space: nowrap;
+  padding: 8px 12px;  /* Added padding for a larger background */
+  border-bottom: 1px solid rgb(107, 107, 107);
+}
+
+.popup-bar li:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.popup-bar li img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  object-fit: contain;
+  filter: invert(1);
+}

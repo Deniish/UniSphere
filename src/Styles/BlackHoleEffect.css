@@ -1,0 +1,476 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Akaya+Telivigala&display=swap');
+
+/* General Reset */
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+}
+
+/* General body styling */
+/* body {
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  filter: url(#noiseFilter);
+  animation: flicker 0.05s infinite alternate;
+ } */
+ .black-hole-body-main {
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  filter: url(#noiseFilter);
+  animation: flicker 0.05s infinite alternate;
+  transition: background 3s ease;
+}
+.black-hole-body-main::-webkit-scrollbar {
+  display: none;
+}
+
+/* Toggle container positioned at top center */
+.toggle-container-home {
+  position: relative;
+  top: 270px;
+  right: 860px;
+  z-index: 1000;
+  transition: opacity 0.5s, visibility 0.9s ease-in-out;
+}
+.toggle-label-home {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 16px;
+  color: #888;
+  white-space: nowrap; /* Prevent wrapping if too narrow */
+}
+.toggle-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 2;
+}
+
+/* Toggle switch styling */
+.toggle-switch-home {
+  width: 115px;
+  height: 45px;
+  background-color: transparent;
+  border: 1px solid #888; /* Border within the toggle */
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  box-sizing: border-box;
+}
+.toggle-switch-home:hover {
+  border: 1px solid #ababab;
+}
+.toggle-icon-home {
+  font-size: 18px;
+  color: #9a9a99;
+  z-index: 2;
+  animation: none;
+  text-align: center;
+  padding-left: 0px;
+  font-weight: 400;
+  padding-top: 0px;
+  display: inline-block;
+  width: 35px; /* Adjust width as needed */
+  height: 25px; /* Adjust height as needed */
+}
+.toggle-icon-home:hover {
+  color: #e4e4e4;
+}
+
+/* When dark mode is active (checkbox is checked), move the slider */
+.toggle-input:checked + .toggle-switch-home .toggle-slider {
+  left: calc(100% - 32px); /* Adjust position to the right */
+  box-shadow: 1px 0px 20px 6px rgb(255, 255, 255); 
+  background: linear-gradient(90deg, #fff2f278, #ffffffbd);
+  cursor: pointer;
+}
+
+ /* @keyframes flicker {
+  0% {opacity: 0.0;}
+  10% {opacity: 0.1;}
+  20% {opacity: 0.2;}
+  30% {opacity: 0.3;}
+  40% {opacity: 0.4;}
+  50% {opacity: 0.5;}
+  60% {opacity: 0.6;}
+  70% {opacity: 0.7;}
+  80% {opacity: 0.8;}
+  90% {opacity: 0.9;}
+  100% {opacity: 1;}
+} */
+
+/* Background gradient */
+#background-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #212122, #000);
+  z-index: 1;
+  transition: background 3s ease;
+}
+
+/* Noise overlay */
+#noise-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="1" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 0.2"/></feComponentTransfer><feBlend mode="overlay" in="SourceGraphic"/><animate attributeName="baseFrequency" values="0.5; 1.0; 0.5" dur="0.05s" repeatCount="indefinite"/></filter></svg>') repeat;
+  animation: moveNoise .5s linear infinite;
+}
+
+@keyframes moveNoise {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+#noise-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Black hole */
+#black-hole {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, #000 60%, rgba(0, 0, 0, 0.8) 70%, transparent 100%);
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+  z-index: 10;
+}
+#particle-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10; /* Lower than UI */
+  pointer-events: none;
+}
+
+/* Text container */
+#custom-text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+}
+
+/* Particle animation */
+.particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  border-radius: 10%;
+  z-index: 1;
+  transition: transform 0.3s ease, z-index 0.3s ease;
+  cursor: pointer;
+}
+
+
+
+
+.particle img {
+  transition: filter 0.3s ease;
+  filter: brightness(0.9);
+  overflow: hidden;
+  cursor: default;
+  z-index: 1;
+}
+
+.particle:hover img {
+  filter: brightness(1.4);
+  z-index: 0;
+}
+
+/* @keyframes spiral-into-hole-fast {
+  0% {
+    transform: rotate(-45deg) translate(var(--orbit-radius)) rotate(0deg) scale(1);
+    opacity: 1;
+    filter: brightness(1);
+  }
+  25% {
+    transform: rotate(calc(-300deg * var(--revolutions))) 
+               translate(calc(var(--orbit-radius) * 0.75)) 
+               rotate(calc(-300deg * var(--revolutions))) 
+               scale(0.75);
+    opacity: 0.85;
+    filter: brightness(0.9);
+  }
+  50% {
+    transform: rotate(calc(-600deg * var(--revolutions))) 
+               translate(calc(var(--orbit-radius) * 0.5)) 
+               rotate(calc(-600deg * var(--revolutions))) 
+               scale(0.5);
+    opacity: 0.7;
+    filter: brightness(0.8);
+  }
+  75% {
+    transform: rotate(calc(-900deg * var(--revolutions))) 
+               translate(calc(var(--orbit-radius) * 0.25)) 
+               rotate(calc(-900deg * var(--revolutions))) 
+               scale(0.25);
+    opacity: 0.5;
+    filter: brightness(0.7);
+  }
+  100% {
+    transform: rotate(calc(-1200deg * var(--revolutions))) 
+               translate(0) 
+               rotate(calc(-1200deg * var(--revolutions))) 
+               scale(0);
+    opacity: 0;
+    filter: brightness(0.5);
+  }
+} */
+
+/* @keyframes spiral-into-hole {
+  0% {
+    transform: rotate(-45deg) translate(var(--orbit-radius)) rotate(0deg) scale(1);
+    opacity: 1;
+    filter: brightness(1);
+  }
+  
+  50% {
+    transform: rotate(calc(-180deg * var(--revolutions))) 
+              translate(calc(var(--orbit-radius) * 0.5)) 
+              rotate(calc(-180deg * var(--revolutions))) 
+              scale(0.5);
+    opacity: 0.7;
+    filter: brightness(0.8);
+  }
+  
+  100% {
+    transform: rotate(calc(-360deg * var(--revolutions))) 
+              translate(0) 
+              rotate(calc(-360deg * var(--revolutions))) 
+              scale(0);
+    opacity: 0;
+    filter: brightness(0.5);
+  }
+} */
+@keyframes spiral-into-hole {
+  0% {
+    transform: rotate(-45deg) translate(var(--orbit-radius)) rotate(0deg) scale(1);
+    opacity: 1;
+    filter: brightness(1);
+  }
+  25% {
+    transform: rotate(calc(-90deg * var(--revolutions))) 
+               translate(calc(var(--orbit-radius) * 0.75)) 
+               rotate(calc(-90deg * var(--revolutions))) 
+               scale(0.75);
+    opacity: 0.85;
+    filter: brightness(0.9);
+  }
+  50% {
+    transform: rotate(calc(-180deg * var(--revolutions))) 
+               translate(calc(var(--orbit-radius) * 0.5)) 
+               rotate(calc(-180deg * var(--revolutions))) 
+               scale(0.5);
+    opacity: 0.7;
+    filter: brightness(0.8);
+  }
+  75% {
+    transform: rotate(calc(-270deg * var(--revolutions))) 
+               translate(calc(var(--orbit-radius) * 0.25)) 
+               rotate(calc(-270deg * var(--revolutions))) 
+               scale(0.25);
+    opacity: 0.5;
+    filter: brightness(0.7);
+  }
+  100% {
+    transform: rotate(calc(-360deg * var(--revolutions))) 
+               translate(0) 
+               rotate(calc(-360deg * var(--revolutions))) 
+               scale(0);
+    opacity: 0;
+    filter: brightness(0.5);
+  }
+}
+
+
+/* Define your custom font */
+@font-face {
+  font-family: 'Chillax'; /* Give your font a name */
+  src: url('/public/Fonts/Chillax/Fonts/OTF/Chillax-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+/* Intro text styling */
+.text-intro {
+  font-family: 'Chillax', sans-serif;
+  font-size: 6rem;
+  font-weight: 1000;
+  background: #ffffe3ca;
+  cursor: default;
+  /* background: linear-gradient(90deg, #d40066, #00b2b9, #c16100); */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  left: 55px;
+  z-index: 100;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Subtext styling */
+.text-sub {
+  font-family: "Abril Fatface", serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #cec7ae;
+  cursor: default;
+  position: relative;
+  left: 150px;
+  z-index: 100;
+  text-align: center;
+}
+
+/* Wrapper for spinning text */
+.wrapper {
+  box-sizing: content-box;
+  height: 70px;
+  padding: 50px 30px;
+  display: flex;
+  border-radius: 8px;
+  z-index: 100;
+}
+
+.words {
+  overflow: hidden;
+}
+
+span {
+  display: block;
+  height: 100%;
+  padding-left: 10px;
+  animation: spin_words 6s infinite;
+}
+
+/* Text spinning animation */
+@keyframes spin_words {
+  10% {
+    transform: translateY(-112%);
+  }
+  25% {
+    transform: translateY(-100%);
+  }
+  35% {
+    transform: translateY(-212%);
+  }
+  50% {
+    transform: translateY(-200%);
+  }
+  60% {
+    transform: translateY(-312%);
+  }
+  75% {
+    transform: translateY(-300%);
+  }
+  85% {
+    transform: translateY(-412%);
+  }
+  100% {
+    transform: translateY(-400%);
+  }
+}
+.loading-container{
+  color: #000000a1;
+  width: 100vw;
+  height: 100vh;
+  /* background: #00000035; */
+  font-size: 6rem;
+  position: relative;
+  top: 185px;
+  font-weight: 1000;
+  font-family: 'Chillax'; 
+}
+
+
+/*---------Light mode---------- */
+
+.light-mode-home {
+  /* Use a lighter background gradient */
+  background: radial-gradient(circle at center, #d6d2d2, #f2f2f2);
+  filter: none; /* Optionally disable the noise filter */
+  animation: none; /* Disable the flicker animation if preferred */
+  transition: background 3s ease;
+}
+.light-mode-home #black-hole{
+  background: radial-gradient(circle, #dddada 60%, rgba(193, 190, 190, 0.8) 70%, transparent 100%);
+}
+
+.light-mode-home #background-gradient {
+  background: radial-gradient(circle at center, #9b9b9f, #fdfbfb);
+  transition: background 3s ease;
+}
+.light-mode-home #noiseFilter {
+  filter: invert(10);
+}
+
+.light-mode-home .text-intro {
+  /* Adjust the intro text for a lighter look */
+  background: linear-gradient(90deg, #000000c6, #575757);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.light-mode-home .text-sub {
+  /* Lighter text color for subtext */
+  color: #1c1c1c;
+}
+
+/* Light mode toggle styling overrides */
+.light-mode-home .toggle-switch-home {
+  border: 2px solid #ccc;
+}
+
+.light-mode-home .toggle-icon-home {
+  color: #434343;
+}
+.light-mode-home .toggle-icon-home:hover {
+  color: #0a0a0a;
+}
+.light-mode-home .toggle-switch-home{
+  border: 1px solid rgba(54, 54, 54, 0.504);
+}
+.light-mode-home .toggle-switch-home:hover {
+  border: 1px solid #1b1b1b;
+}

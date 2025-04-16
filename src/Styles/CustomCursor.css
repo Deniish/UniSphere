@@ -1,0 +1,13 @@
+.custom-cursor {
+    position: fixed;
+    width: 13px;             /* Adjust size as needed */
+    height: 13px;            /* Adjust size as needed */
+    background-color: rgba(255, 255, 255, 0.496); /* Small white ball */
+    border-radius: 50%;      /* Makes it round */
+    pointer-events: none;    /* Ensures it doesn't interfere with clicks */
+    transform: translate(-50%, -50%);
+    z-index: 9999;           /* On top of most elements */
+    /* Smooth transition for left and top properties */
+    transition: left 0.3s ease, top 0.4s ease;
+  }
+  

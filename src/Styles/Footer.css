@@ -1,0 +1,186 @@
+/*---------------------------Fotter-----------------------------*/
+/* Grain Effect */
+.footer-grain-effect::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400vw;
+    height: 400vh;
+    background-image: url('/public/backgrounds/noise.webp'); /* Ensure correct path */
+    top: calc(50% - 400vh / 2);
+    left: calc(50% - 400vw / 2);
+    opacity: 0.5; /* Adjust for subtle effect */
+    pointer-events: none;
+    animation: grain 8s steps(10) infinite;
+    z-index: 1;
+  }
+  
+  /* Noise Animation */
+  @keyframes grain {
+    0%, 100% { transform: translate(0px, 0px); }
+    10% { transform: translate(-5%, -10%); }
+    20% { transform: translate(-15%, 5%); }
+    30% { transform: translate(7%, -25%); }
+    40% { transform: translate(-5%, 25%); }
+    50% { transform: translate(-15%, 10%); }
+    60% { transform: translate(15%, 0%); }
+    70% { transform: translate(0%, 15%); }
+    80% { transform: translate(-5%, -25%); }
+    90% { transform: translate(-10%, 10%); }
+  }
+  
+  /* Footer column */
+  
+  .footer-columns {
+    position: absolute; 
+    top: 60px;           
+    right: 200px;     
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  
+  
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .column-header {
+    margin-bottom: 25px;  /* Reduced gap between header and links */
+    font-size: 1.0rem;
+    font-weight: 400;
+    color: #ffffff67;        
+  }
+  
+  
+  
+  /* Both text spans use the same transition */
+  .footer-text .default-text,
+  .footer-text .hover-text {
+    animation: none;
+    padding-left: 0;
+    display: block;
+    transition: transform 0.6s ease, opacity 0.5s ease;
+  }
+  
+  /* Default state: "Sign Up" is visible */
+  .footer-text {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    padding: 10px 20px;
+    color: #b1b1b1;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Boska-regular';
+    font-weight: 500;
+    transition: background-color 0.1s ease;
+    z-index: 100;
+  }
+  
+  .footer-text .default-text {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  /* "Join Now" is hidden initially and placed absolutely */
+  .footer-text .hover-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    transform: translateY(80%);
+    opacity: 0;
+  }
+  
+  /* On hover, slide up "Sign Up" and slide in "Join Now" */
+  .footer-text:hover .default-text {
+    transform: translateY(-60%);
+    opacity: 0;
+  }
+  
+  .footer-text:hover .hover-text {
+    transform: translateY(20%);
+    color: wheat;
+    opacity: 1;
+  }
+  
+  .logo-slogan-container {
+    z-index: 100;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px; 
+    flex-direction: column;
+    padding-left: 200px;
+  }
+  
+  .unisphere-logo-footer {
+    z-index: 100;
+    width: 40px;
+    padding: 10px;   
+    filter: brightness(2) saturate(0%) invert(1);
+    transition: filter 0.3s ease;
+  }
+  .unisphere-logo-footer:hover {  
+    filter: none;
+  }
+  .footer-logo-text {
+    z-index: 100;
+    text-align: left;
+    margin-left: 10px;
+    font-size: 2.0rem;
+    font-family: 'Boska-regular';
+    color: rgb(245, 236, 220);
+  }
+  
+  .footer-logo {
+    animation: unset;
+    padding-left: 0;
+    color: #94938D;
+    font-size: 14rem; 
+    font-family: 'Chillax';
+    z-index: 100;
+    text-align: center;
+    margin: 0 auto; /* Center it within its container */
+  }
+  
+  
+  .footer-wrapper-hidden{
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  .footer-wrapper {
+    height: 60vh;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    background-color: #222;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  
+  }
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .footer-wrapper::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+    background: #222;
+  }
+  .manifesto-footer  {
+    text-align: center;
+    padding: 10px;
+    background-color: #222;
+    color: #fff;
+    margin: 0;
+  }
+  /* .footer-container::-webkit-scrollbar{
+    opacity: 0;
+    visibility: hidden;
+  } */
