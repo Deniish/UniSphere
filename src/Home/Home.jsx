@@ -77,7 +77,7 @@ const sectionsOrder = [
 ];
 
 // --- Chatbot API Configuration for Reccome ---
-const CHATBOT_API_KEY = "AIzaSyDJw2w30R8mW-KlY8nVEuSPAT0Xtmyj9K8";
+const CHATBOT_API_KEY = "API";
 const CHATBOT_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${CHATBOT_API_KEY}`;
 
 const Home = () => {
